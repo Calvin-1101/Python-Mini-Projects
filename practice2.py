@@ -4,9 +4,11 @@ class BankAccount:
         self.name = name
         self.balance = balance
         self.transact = []
+    
     def deposit(self,amount, record_transaction = True):
+        #added a record_transaction argument to this function, to choose if we want to append this transaction to self.transact
         if amount > 0:
-            self.balance += amount
+            self.balance += amount #this is an easy way to apply a operator to a attribute, without needing to do "balance = balance + amount"
             if record_transaction == True:
                 self.transact.append(f"Deposited:RM{amount}, Balance: RM{self.balance}")
 
@@ -21,8 +23,6 @@ class BankAccount:
 
         else:
             print("Insufficient Funds or Invalid Amount")
-    
-
 
 
     def transfer(self,amount,recipient_account):
